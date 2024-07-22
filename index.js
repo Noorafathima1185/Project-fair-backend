@@ -12,6 +12,9 @@ const cors = require('cors')
 // import router
 const router = require('./routes')
 
+// import connectio.js
+require('./connection')
+
 
 // create express server
 // creates an express application. the express() function is a top-level function exported by the express module.
