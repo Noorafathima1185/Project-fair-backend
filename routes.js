@@ -6,6 +6,8 @@ const userController = require('./controller/userController')
 
 // import project controller
 const projectControlller = require('./controller/projectController')
+const jwt = require('./middleware/jwtMiddleware')
+const multerConfig = require('./middleware/multerMiddleware')
 
 // 2) create an object for router class
 const router = new express.Router()
@@ -20,7 +22,7 @@ router.post('/register',userController.registerController)
 router.post('/login',userController.loginController)
 
 // addproject
-router.post('/addproject',projectControlller.addProjectController)
+router.post('/addproject',jwt,multerConfig.single('projectimg'),projectControlller.addProjectController)
 
 
 // 4) export the router
