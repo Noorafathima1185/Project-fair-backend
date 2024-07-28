@@ -32,6 +32,12 @@ pfServer.use(express.json()) // Returns middleware that only parses json and onl
 // use router
 pfServer.use(router)
 
+// to export upload folder from the server side to use in the client side
+// first argument should the name in which we are using the folder in the client side
+// second-arg static method to export the folder
+// static method should have the path of the export folder 
+pfServer.use('/uploads',express.static('./uploads'))
+
 
 // set port for the server
 PORT = 4000 || process.env.PORT
